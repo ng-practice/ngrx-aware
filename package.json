@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "api": "ts-node ./server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,7 +26,11 @@
     "@angular/router": "5.0.0-beta.6",
     "@ngrx/effects": "^4.0.5",
     "@ngrx/store": "^4.0.3",
+    "body-parser": "^1.18.0",
     "core-js": "^2.4.1",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "express-jwt": "^5.3.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
@@ -46,7 +51,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
-    "ts-node": "~3.3.0",
+    "ts-node": "^3.3.0",
     "tslint": "~5.7.0",
     "typescript": "~2.5.2"
   }
