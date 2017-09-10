@@ -12,9 +12,7 @@ export class Authentication {
   }
 
   login = ({ body: candidate }: Request, res: Response) => {
-    if (candidate.userName === 'john' &&
-        candidate.password === '1234') {
-
+    if (candidate.userName === 'john' && candidate.password === '1234') {
       res.status(200).json(this.token(candidate.userName));
     } else {
       res.status(403).send();
