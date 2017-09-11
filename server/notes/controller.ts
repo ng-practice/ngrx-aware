@@ -6,7 +6,7 @@ import { StoredNotes } from './stored-notes.repository';
 const db = new JsonDb(`${__dirname}/notes.json`, true, true);
 
 export class Notes {
-  constructor(
+  constructor (
     public routes = Router(),
     private notes = new StoredNotes(db)) {
 
@@ -25,7 +25,9 @@ export class Notes {
   single = ({ params }: Request, res: Response) => {
     const found = this.notes.single(params.guid);
 
-    if (found) { return res.send(found); }
+    if (found) {
+      return res.send(found);
+    }
 
     return res.status(404).send(new Error('Uups, we found no note having ' +
                                           `an ID "${params.guid}".`));

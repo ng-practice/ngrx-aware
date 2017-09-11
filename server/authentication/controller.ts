@@ -4,10 +4,7 @@ import jwt = require('jsonwebtoken');
 export class Authentication {
   options = { algorithm: 'HS256', expiresIn: '3 days' };
 
-  constructor(
-    private secret: string,
-    public routes = Router()) {
-
+  constructor(private secret: string, public routes = Router()) {
     this.routes.post('/login', this.login);
   }
 
