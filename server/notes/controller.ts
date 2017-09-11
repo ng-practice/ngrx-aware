@@ -2,7 +2,6 @@ import { Router, Request, Response } from 'express';
 import JsonDb = require('node-json-db');
 
 import { StoredNotes } from './stored-notes.repository';
-
 const db = new JsonDb(`${__dirname}/notes.json`, true, true);
 
 export class Notes {

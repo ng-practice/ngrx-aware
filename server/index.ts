@@ -12,7 +12,7 @@ const secret = ':3K_sl;e&sd5K03)_dsl&k:sdTL;';
 
 server.use(parse.json());
 server.use(cors());
-server.use(jwt({ secret }).unless({ path: ['/login'] }));
+server.use(jwt({ secret }).unless({ path: ['/login', '/register'] }));
 
 server.use('/',      new Authentication(secret).routes);
 server.use('/notes', new Notes().routes);

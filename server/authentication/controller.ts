@@ -1,32 +1,62 @@
 import { Router, Request, Response } from 'express';
+
+import JsonDb = require('node-json-db');
 import jwt = require('jsonwebtoken');
+
+import { hash } from '../core';
+
+import { RegisteredUsers } from './registered-users.repository';
+const db = new JsonDb(`${__dirname}/users.json`, true, true);
+
+import { User } from './model';
 
 export class Authentication {
   options = { algorithm: 'HS256', expiresIn: '3 days' };
 
-  constructor(private secret: string, public routes = Router()) {
+  constructor(
+    private secret: string,
+    public routes = Router(),
+    public users = new RegisteredUsers(db)) {
+
     this.routes.post('/login', this.login);
+    this.routes.post('/register', this.register);
   }
 
   login = ({ body: candidate }: Request, res: Response) => {
-    if (candidate.userName === 'john' && candidate.password === '1234') {
+    const user = this.users.byEmail(candidate.email);
+    console.log(user, hash(candidate.password));
+    if (user &&
+        user.password === hash(candidate.password)) {
       res.status(200).json(this.token(candidate.userName));
     } else {
       res.status(403).send();
     }
   }
 
-  private token(userName: string) {
+  register = ({ body: user }: Request, res: Response) => {
+    if (user.email &&
+        user.password === user.confirmedPassword) {
+
+      this.users.add(user.email, user.password);
+
+      return res.send(`Congratulations! ${user.email} has been ` +
+                      'registered successfully.');
+    }
+
+    return res.status(405).send('Uups, something went wrong. We are sorry.');
+  }
+
+  private token(email: string) {
     return jwt.sign(
-      this.createPayload(userName),
+      this.createPayload(email),
       this.secret,
       this.options
     );
   }
 
-  private createPayload(userName: string) {
+  private createPayload(email: string) {
     return {
-      userName,
+      email,
       role: 'member'
     };
   }

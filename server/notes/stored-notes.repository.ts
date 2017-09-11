@@ -24,7 +24,7 @@ export class StoredNotes {
       .filter(note => note.title.toLowerCase().indexOf(query) >= 0);
   }
 
-  create(note: Note) {
+  create(note: Note): string {
     const guid = note.guid;
 
     if (!guid) { return null; }
