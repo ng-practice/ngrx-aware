@@ -24,9 +24,8 @@ export class Authentication {
 
   login = ({ body: candidate }: Request, res: Response) => {
     const user = this.users.byEmail(candidate.email);
-    console.log(user, hash(candidate.password));
-    if (user &&
-        user.password === hash(candidate.password)) {
+
+    if (user && user.password === hash(candidate.password)) {
       res.status(200).json(this.token(candidate.userName));
     } else {
       res.status(403).send();
