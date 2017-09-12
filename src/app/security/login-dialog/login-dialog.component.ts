@@ -1,5 +1,7 @@
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+
+import { Stranger } from '../stranger';
 
 @Component({
   selector: 'awr-login-dialog',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-dialog.component.scss']
 })
 export class LoginDialog {
+  @Output() submit = new EventEmitter<Stranger>();
+
   login: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -18,5 +22,15 @@ export class LoginDialog {
       email: ['',   [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+  }
+
+  submitCredentials() {
+    const candidate = new Stranger(
+      this.login.controls.email.value,
+      this.login.controls.password.value
+    );
+
+    this.submit.emit(candidate);
+    this.login.reset();
   }
 }

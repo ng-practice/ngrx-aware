@@ -12,11 +12,20 @@
         </md-error>
       </md-form-field>
       <md-form-field>
-        <input mdInput type="password" placeholder="Passwort">
+        <input
+          mdInput
+          formControlName="password"
+          type="password"
+          placeholder="Passwort">
       </md-form-field>
     </form>
   </div>
   <div class="actions">
-    <button md-raised-button color="primary">Login</button>
+    <button
+      (click)="submitCredentials()"
+      [disabled]="login.invalid"
+      md-raised-button color="primary">
+      Login
+    </button>
   </div>
 </awr-user-dialog>
