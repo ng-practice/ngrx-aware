@@ -1,0 +1,22 @@
+<awr-user-dialog title="Login">
+  <div class="content">
+    <form [formGroup]="login">
+      <md-form-field>
+        <input
+          mdInput
+          formControlName="email"
+          type="text"
+          placeholder="Email-Adresse">
+        <md-error *ngIf="login.controls.email.hasError('required')">
+          Bitte vergessen Sie Ihre E-Mail-Adresse nicht.
+        </md-error>
+      </md-form-field>
+      <md-form-field>
+        <input mdInput type="password" placeholder="Passwort">
+      </md-form-field>
+    </form>
+  </div>
+  <div class="actions">
+    <button md-raised-button color="primary">Login</button>
+  </div>
+</awr-user-dialog>

@@ -1,3 +1,5 @@
+import { SecurityModule } from './security/security.module';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +14,10 @@ import { AppRoot } from './app.component';
   imports: [
     BrowserModule,
 
-    NotesModule
+    SecurityModule,
+    NotesModule,
+
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppRoot]
