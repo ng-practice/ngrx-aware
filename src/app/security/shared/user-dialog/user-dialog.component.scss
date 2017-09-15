@@ -1,3 +1,9 @@
 md-card {
-  min-width: 400px;
+  min-width: 300px;
+}
+
+@media (min-width: 682px) {
+  md-card {
+    min-width: 400px;
+  }
 }
