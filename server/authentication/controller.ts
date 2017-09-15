@@ -12,6 +12,7 @@ import { User } from './model';
 
 export class Authentication {
   options = { algorithm: 'HS256', expiresIn: '3 days' };
+  prefix = 'Bearer ';
 
   constructor(
     private secret: string,
@@ -20,6 +21,7 @@ export class Authentication {
 
     this.routes.post('/login', this.login);
     this.routes.post('/register', this.register);
+    this.routes.get('/is-user-authenticated', this.isUserAuthenticated);
   }
 
   login = ({ body: candidate }: Request, res: Response) => {
@@ -34,23 +36,28 @@ export class Authentication {
 
   register = ({ body: user }: Request, res: Response) => {
     if (user.email &&
-        user.password === user.confirmedPassword) {
+      user.password === user.confirmedPassword) {
 
       this.users.add(user.email, user.password);
 
       return res.send(`Congratulations! ${user.email} has been ` +
-                      'registered successfully.');
+        'registered successfully.');
     }
 
     return res.status(405).send('Uups, something went wrong. We are sorry.');
   }
 
+  isUserAuthenticated = (req: Request, res: Response) => {
+    res.send(true);
+  }
+
   private token(email: string) {
-    return jwt.sign(
-      this.createPayload(email),
-      this.secret,
-      this.options
-    );
+    return this.prefix +
+           jwt.sign(
+             this.createPayload(email),
+             this.secret,
+             this.options
+           );
   }
 
   private createPayload(email: string) {

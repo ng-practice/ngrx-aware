@@ -1,18 +1,21 @@
-import { NgModule } from '@angular/core';
+import { AuthenticationInterceptor } from './services/authentication.interceptor';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SecurityRoutingModule } from './security-routing.module';
 import { SecurityMaterialModule } from './security-material.module';
 
+import { LocalStorage } from './services/local-storage.service';
+
 import { UserDialog } from './shared/user-dialog/user-dialog.component';
 
-import { LoginPage } from './login-page/login-page.component';
-import { LoginDialog } from './login-dialog/login-dialog.component';
+import { LoginPage } from './containers/login-page/login-page.component';
+import { LoginDialog } from './components/login-dialog/login-dialog.component';
 
-import { Authentication } from './services/authentication.service';
+import { provideAuthentication } from './services/authentication.service';
 
 @NgModule({
   imports: [
@@ -30,12 +33,25 @@ import { Authentication } from './services/authentication.service';
     LoginPage,
     LoginDialog
   ],
-  providers: [
-    {
-      provide: Authentication,
-      useClass: Authentication,
-      deps: [HttpClient]
-    }
-  ]
 })
-export class SecurityModule { }
+export class SecurityModule {
+  static forRoot(config: SignInConfig): ModuleWithProviders {
+    return {
+      ngModule: SecurityModule,
+      providers: [
+        LocalStorage,
+        provideAuthentication(config.targetUrlAfterSigningIn),
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthenticationInterceptor,
+          deps: [LocalStorage],
+          multi: true
+        }
+      ]
+    };
+  }
+}
+
+export interface SignInConfig {
+  targetUrlAfterSigningIn: string[];
+}

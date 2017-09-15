@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Stranger } from '../stranger';
+import { Stranger } from '../../models';
 
-import { Authentication } from '../services/authentication.service';
+import { Authentication } from '../../services/authentication.service';
 
 @Component({
   selector: 'awr-login-page',
