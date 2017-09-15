@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Stranger } from '../../models';
 
@@ -10,11 +10,9 @@ import { Authentication } from '../../services/authentication.service';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPage {
-  constructor(private authentication: Authentication) { }
+  constructor(private authentication: Authentication) {}
 
   signIn(stranger: Stranger) {
-    this.authentication
-      .signIn(stranger)
-      .subscribe();
+    this.authentication.signIn(stranger).subscribe();
   }
 }

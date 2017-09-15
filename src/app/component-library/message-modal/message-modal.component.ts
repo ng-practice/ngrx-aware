@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  QueryList,
-  Renderer2,
-  ViewChildren
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'awr-message-modal',
@@ -17,24 +10,5 @@ export class MessageModal {
   @Input() message: string;
   @Input() color = 'basic';
 
-  get closables(): NodeListOf<HTMLElement> {
-    return this.element.nativeElement.querySelectorAll('.closable');
-  }
-
-  constructor(
-    private element: ElementRef,
-    private renderer: Renderer2
-  ) {}
-
-  closeModal() {
-    for (let i = 0; i < this.closables.length; i++) {
-      this.renderer.addClass(this.closables[i], 'closed');
-    }
-  }
-
-  openModal() {
-    for (let i = 0; i < this.closables.length; i++) {
-      this.renderer.removeClass(this.closables[i], 'closed');
-    }
-  }
+  @Output() close = new EventEmitter();
 }

@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { Modal } from './message-modal/modal.service';
+import { ApplicationRef, ComponentFactoryResolver, Injector, NgModule, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdCardModule, MdButtonModule } from '@angular/material';
+import { MdCardModule, MdButtonModule, ComponentPortal } from '@angular/material';
 
 import { MessageModal } from './message-modal/message-modal.component';
 import { AddClassesOnClick } from './directives/append-class-on-click.directive';
@@ -12,6 +13,11 @@ import { AddClassesOnClick } from './directives/append-class-on-click.directive'
     MdButtonModule
   ],
   declarations: [MessageModal, AddClassesOnClick],
-  exports: [MessageModal]
+  entryComponents: [MessageModal],
+  providers: [{
+    provide: Modal,
+    useClass: Modal,
+    deps: [ApplicationRef, Injector, ComponentFactoryResolver]
+  }]
 })
 export class ComponentLibraryModule { }

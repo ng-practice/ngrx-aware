@@ -1,4 +1,4 @@
-<div class="closable backdrop" (click)="closeModal()">
+<div class="closable backdrop" (click)="close.emit()">
 </div>
 
 <div class="closable message-dialog">
@@ -7,7 +7,7 @@
     <md-card-content>{{ message }}</md-card-content>
     <md-card-content>
       <button
-        (click)="closeModal()"
+        (click)="close.emit()"
         md-raised-button
         [color]="color">
         Got it!

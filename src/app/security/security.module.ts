@@ -1,3 +1,4 @@
+import { MessageModal } from '../component-library';
 import { ComponentLibraryModule } from '../component-library/component-library.module';
 import { AuthenticationInterceptor } from './services/authentication.interceptor';
 import { NgModule, ModuleWithProviders } from '@angular/core';
@@ -35,7 +36,7 @@ import { provideAuthentication } from './services/authentication.service';
     UserDialog,
     LoginPage,
     LoginDialog
-  ],
+  ]
 })
 export class SecurityModule {
   static forRoot(config: SignInConfig): ModuleWithProviders {
