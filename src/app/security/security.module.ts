@@ -1,3 +1,4 @@
+import { ComponentLibraryModule } from '../component-library/component-library.module';
 import { AuthenticationInterceptor } from './services/authentication.interceptor';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,6 +24,8 @@ import { provideAuthentication } from './services/authentication.service';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
+    ComponentLibraryModule,
 
     SecurityMaterialModule,
 
