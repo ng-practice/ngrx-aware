@@ -31,6 +31,6 @@ export class LoginDialog {
     );
 
     this.submit.emit(candidate);
-    this.login.reset();
+    this.login.controls.password.reset();
   }
 }
