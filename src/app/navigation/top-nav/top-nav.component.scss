@@ -27,3 +27,13 @@ a {
     color: #FFFFFF;
   }
 }
+
+a.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  md-icon {
+    padding-right: 8px;
+  }
+}
