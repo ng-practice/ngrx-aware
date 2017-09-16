@@ -32,6 +32,7 @@
     "express": "^4.15.4",
     "express-jwt": "^5.3.0",
     "node-json-db": "^0.7.3",
+    "normalize.css": "^7.0.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.16"
   },
