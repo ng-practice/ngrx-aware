@@ -1,0 +1,23 @@
+<awr-user-dialog title="Feedback">
+  <form
+    class="content"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="questionnaire">
+    <div *ngFor="let question of questions" class="form-row">
+      <awr-dynamic-form-question
+        [question]="question"
+        [form]="questionnaire">
+      </awr-dynamic-form-question>
+    </div>
+
+    <div class="form-row">
+      <button
+        md-raised-button
+        color="primary"
+        [disabled]="questionnaire.invalid"
+        type="submit">
+        Send question
+      </button>
+    </div>
+  </form>
+</awr-user-dialog>

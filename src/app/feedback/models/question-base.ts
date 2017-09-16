@@ -1,4 +1,4 @@
-import { Validator, AsyncValidator } from '@angular/forms';
+import { ValidatorFn, AsyncValidatorFn } from '@angular/forms';
 
 import { QuestionOptions } from './question-options';
 
@@ -6,8 +6,8 @@ export class QuestionBase<T> {
   value: T;
   key: string;
   placeholder: string;
-  validators: Validator[];
-  asyncValidators: AsyncValidator[];
+  validators: ValidatorFn[];
+  asyncValidators: AsyncValidatorFn[];
   order: number;
   controlType: string;
 

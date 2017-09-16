@@ -18,6 +18,11 @@ const routes: Route[] = [
     canLoad: [IsUserAuthenticated]
   },
   {
+    path: 'feedback',
+    loadChildren: './feedback/feedback.module#FeedbackModule',
+    canLoad: [IsUserAuthenticated]
+  },
+  {
     path: '**',
     component: NotFound
   }

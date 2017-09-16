@@ -1,11 +1,11 @@
-import { AsyncValidator, Validator } from '@angular/forms';
+import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
 
 export interface QuestionOptions<T> {
   value?: T;
   key?: string;
   placeholder?: string;
-  validators?: Validator[];
-  asyncValidators?: AsyncValidator[];
+  validators?: ValidatorFn[];
+  asyncValidators?: AsyncValidatorFn[];
   order?: number;
   controlType?: string;
 }
