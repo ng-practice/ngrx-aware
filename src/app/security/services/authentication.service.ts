@@ -58,8 +58,7 @@ export function provideAuthentication(
         http,
         router,
         storage,
-        modal,
-        targetUrlAfterSigningIn
+        modal
       );
     },
     deps: [HttpClient, Router, LocalStorage, Modal]
