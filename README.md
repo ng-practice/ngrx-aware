@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
+## Material Icons
+
+- The material icon font is installed in this project.
+- With the <md-icon> component fomr `@angular/material` it is easy to use them
+  - *Sample:* `<md-icon>home</md-icon`
+- Check [material.io/icons/](https://material.io/icons/) for the icon reference 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
