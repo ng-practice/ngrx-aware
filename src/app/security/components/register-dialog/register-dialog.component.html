@@ -1,0 +1,15 @@
+<awr-user-dialog title="Register">
+  <form [formGroup]="register" class="content">
+    <md-form-field>
+      <input mdInput formControlName="email" placeholder="Type a valid email address">
+    </md-form-field>
+    <awr-password-inputs formControlName="password"></awr-password-inputs>
+    {{ register.value | json }}
+  </form>
+  <div class="actions">
+    <button
+      md-raised-button
+      color="primary"
+      [disabled]="register.invalid">Register</button>
+  </div>
+</awr-user-dialog>

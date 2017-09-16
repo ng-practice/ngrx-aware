@@ -1,10 +1,16 @@
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessor } from '@angular/forms/src/directives';
-import { Component, OnInit } from '@angular/core';
+import { Component, forwardRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'awr-password-inputs',
   templateUrl: './password-inputs.component.html',
-  styleUrls: ['./password-inputs.component.scss']
+  styleUrls: ['./password-inputs.component.scss'],
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => PasswordInputs),
+    multi: true
+  }]
 })
 export class PasswordInputs implements ControlValueAccessor {
   password: string;
@@ -21,7 +27,7 @@ export class PasswordInputs implements ControlValueAccessor {
   }
 
   public registerOnTouched(fn: any): void {
-    throw new Error('Not implemented yet.');
+    /** Noop */
   }
 
   public setDisabledState(isDisabled: boolean): void {

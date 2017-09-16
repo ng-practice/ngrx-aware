@@ -17,6 +17,9 @@ import { UserDialog } from './shared/user-dialog/user-dialog.component';
 import { LoginPage } from './containers/login-page/login-page.component';
 import { LoginDialog } from './components/login-dialog/login-dialog.component';
 
+import { RegisterDialog } from './components/register-dialog/register-dialog.component';
+import { RegisterPage } from './containers/register-page/register-page.component';
+
 import { provideAuthentication } from './services/authentication.service';
 
 @NgModule({
@@ -35,7 +38,9 @@ import { provideAuthentication } from './services/authentication.service';
   declarations: [
     UserDialog,
     LoginPage,
-    LoginDialog
+    LoginDialog,
+    RegisterPage,
+    RegisterDialog
   ]
 })
 export class SecurityModule {

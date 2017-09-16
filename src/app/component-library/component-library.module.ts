@@ -2,7 +2,7 @@ import { FormsModule } from '@angular/forms';
 import { Modal } from './message-modal/modal.service';
 import { ApplicationRef, ComponentFactoryResolver, Injector, NgModule, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdCardModule, MdButtonModule, ComponentPortal } from '@angular/material';
+import { MdCardModule, MdButtonModule, MdInputModule } from '@angular/material';
 
 import { MessageModal } from './message-modal/message-modal.component';
 import { AddClassesOnClick } from './directives/append-class-on-click.directive';
@@ -15,7 +15,8 @@ import { PasswordInputs } from './password-inputs/password-inputs.component';
     FormsModule,
 
     MdCardModule,
-    MdButtonModule
+    MdButtonModule,
+    MdInputModule
   ],
   declarations: [MessageModal, AddClassesOnClick, PasswordInputs],
   exports: [PasswordInputs],
