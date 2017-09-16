@@ -1,3 +1,4 @@
+import { EmailTaken } from '../../../component-library/form-validators/email-taken.validator';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -9,13 +10,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterDialog {
   register: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private emailTaken: EmailTaken) {
     this.provideEmptyRegisterForm();
    }
 
    provideEmptyRegisterForm() {
      this.register = this.fb.group({
-       email: ['', Validators.email],
+       email: ['', Validators.email, (c) => this.emailTaken.validate(c)],
        password: ['', Validators.required]
      });
    }

@@ -21,6 +21,7 @@ export class Authentication {
 
     this.routes.post('/login', this.login);
     this.routes.post('/register', this.register);
+    this.routes.get('/is-email-taken/:email', this.isEmailTaken);
     this.routes.get('/is-user-authenticated', this.isUserAuthenticated);
   }
 
@@ -45,6 +46,15 @@ export class Authentication {
     }
 
     return res.status(405).send('Uups, something went wrong. We are sorry.');
+  }
+
+  isEmailTaken = ({ params }: Request, res: Response) => {
+    try {
+      this.users.byEmail(params.email);
+      return res.send(true);
+    } catch {
+      res.send(false);
+    }
   }
 
   isUserAuthenticated = (req: Request, res: Response) => {

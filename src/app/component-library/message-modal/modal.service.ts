@@ -6,6 +6,7 @@ import {
   Host,
   Injectable,
   Injector,
+  Provider,
   ViewContainerRef,
 } from '@angular/core';
 
@@ -51,3 +52,9 @@ export class Modal {
     this.modal.destroy();
   }
 }
+
+export const MODAL: Provider = {
+    provide: Modal,
+    useClass: Modal,
+    deps: [ApplicationRef, Injector, ComponentFactoryResolver]
+};

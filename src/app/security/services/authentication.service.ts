@@ -1,7 +1,10 @@
-import { Observable } from 'rxjs/Rx';
 import { Injectable, Provider } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/observable/of'
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -23,15 +26,20 @@ export class Authentication {
     private navigationTargetAfterSignIn: string[]
   ) {}
 
-  signIn(stranger: Stranger) {
+  signIn(stranger: Stranger): Observable<string> {
     return this.http
       .post<string>(`${this.endpoint}/login`, stranger)
       .do(token => this.storage.set('token', token))
       .do(() => this.router.navigate(this.navigationTargetAfterSignIn))
       .catch(() => {
         this.modal.open('Not allowed', 'You entered the wrong email or password');
-        return Observable.empty();
+        return Observable.of(null);
       });
+  }
+
+  isEmailTaken(email: string): Observable<boolean> {
+    return this.http
+      .get<boolean>(`${this.endpoint}/is-email-taken/${email}`);
   }
 }
 
