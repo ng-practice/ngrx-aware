@@ -22,6 +22,10 @@ export class UserQuestionnaire implements OnInit {
     this.questionnaire = this.qb.group(this.questions);
   }
 
+  submit() {
+    console.log(this.questionnaire.value);
+  }
+
   provideQuestions(): QuestionBase<any>[] {
     const questions =  [
       new DropdownQuestion(

@@ -1,7 +1,7 @@
 <awr-user-dialog title="Feedback">
   <form
     class="content"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="submit()"
     [formGroup]="questionnaire">
     <div *ngFor="let question of questions" class="form-row">
       <awr-dynamic-form-question
