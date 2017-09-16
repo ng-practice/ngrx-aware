@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NotesRoutingModule } from './notes-routing.module';
 
-import { NotesBoard } from './containers/notes-board/notes-board.component';
+import { NotesGrid, NoteCard } from './board';
 
 @NgModule({
   imports: [
@@ -11,6 +11,6 @@ import { NotesBoard } from './containers/notes-board/notes-board.component';
 
     NotesRoutingModule
   ],
-  declarations: [NotesBoard]
+  declarations: [NotesGrid, NoteCard]
 })
 export class NotesModule { }

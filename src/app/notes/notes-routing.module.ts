@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
 
-import { NotesBoard } from './containers/notes-board/notes-board.component';
+import { NotesGrid } from './board';
 
 const routes: Route[] = [
   { path: '', redirectTo: 'board', pathMatch: 'full' },
-  { path: 'board', component: NotesBoard }
+  { path: 'board', component: NotesGrid }
 ];
 
 @NgModule({
