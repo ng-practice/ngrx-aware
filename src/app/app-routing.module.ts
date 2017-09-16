@@ -6,6 +6,11 @@ import { IsUserAuthenticated } from './security/guards/is-user-authenticated.gua
 
 const routes: Route[] = [
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
     path: 'notes',
     loadChildren: './notes/notes.module#NotesModule',
     canLoad: [IsUserAuthenticated]
