@@ -23,7 +23,7 @@ export class UserQuestionnaire implements OnInit {
   }
 
   provideQuestions(): QuestionBase<any>[] {
-    return [
+    const questions =  [
       new DropdownQuestion(
         {
           key: 'subject',
@@ -39,14 +39,16 @@ export class UserQuestionnaire implements OnInit {
         key: 'firstName',
         placeholder: 'First name',
         validators: [Validators.required],
-        order: 1
+        order: 2
       }, 'text'),
       new TextboxQuestion({
         key: 'question',
         placeholder: 'Type your question',
         validators: [Validators.required],
-        order: 1
+        order: 3
       }, 'text'),
     ];
+
+    return questions.sort((current, next) => current.order - next.order);
   }
 }
