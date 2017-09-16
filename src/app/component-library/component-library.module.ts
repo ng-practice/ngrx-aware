@@ -23,6 +23,7 @@ import {
   EMAIL_TAKEN_VALIDATOR
 } from './form-validators';
 
+import { UserDialog } from './user-dialog/user-dialog.component';
 import { MessageModal } from './message-modal/message-modal.component';
 import { PasswordInputs } from './password-inputs/password-inputs.component';
 
@@ -46,13 +47,15 @@ import { AddClassesOnClick } from './directives/append-class-on-click.directive'
     MessageModal,
     PasswordInputs,
     AddClassesOnClick,
-    NotFound
+    NotFound,
+    UserDialog
   ],
   exports: [
     EmailTakenTemplateValidator,
     AddClassesOnClick,
     PasswordInputs,
-    NotFound
+    NotFound,
+    UserDialog
   ],
   entryComponents: [MessageModal],
   providers: [EMAIL_TAKEN_VALIDATOR, MODAL, NotFound]

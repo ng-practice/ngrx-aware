@@ -7,18 +7,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MdInputModule, MdButtonModule } from '@angular/material';
 import { SecurityRoutingModule } from './security-routing.module';
-import { SecurityMaterialModule } from './security-material.module';
 
 import { LocalStorage } from './services/local-storage.service';
 
-import { UserDialog } from './shared/user-dialog/user-dialog.component';
-
-import { LoginPage } from './containers/login-page/login-page.component';
-import { LoginDialog } from './components/login-dialog/login-dialog.component';
-
-import { RegisterDialog } from './components/register-dialog/register-dialog.component';
-import { RegisterPage } from './containers/register-page/register-page.component';
+import { LoginPage, LoginDialog } from './login';
+import { RegisterDialog, RegisterPage } from './registration';
 
 import { provideAuthentication } from './services/authentication.service';
 
@@ -29,14 +24,14 @@ import { provideAuthentication } from './services/authentication.service';
     HttpClientModule,
     ReactiveFormsModule,
 
-    ComponentLibraryModule,
+    MdInputModule,
+    MdButtonModule,
 
-    SecurityMaterialModule,
+    ComponentLibraryModule,
 
     SecurityRoutingModule
   ],
   declarations: [
-    UserDialog,
     LoginPage,
     LoginDialog,
     RegisterPage,
