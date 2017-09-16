@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Modal } from '../../../component-library/message-modal/modal.service';
+import { Component } from '@angular/core';
+
+import { Authentication } from '../../services';
+import { Stranger } from '../../models';
 
 @Component({
   selector: 'awr-register-page',
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.scss']
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage {
+  constructor(private authentication: Authentication, private modal: Modal) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  register(stranger: Stranger) {
+    this.authentication
+      .register(stranger)
+      .subscribe(result =>
+        this.modal.open('Success', result.message, 'accent')
+      );
   }
-
 }

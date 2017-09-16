@@ -15,6 +15,7 @@
     <button
       md-raised-button
       color="primary"
-      [disabled]="register.invalid">Register</button>
+      [disabled]="register.invalid"
+      (click)="submitCredentials()">Register</button>
   </div>
 </awr-user-dialog>

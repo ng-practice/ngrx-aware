@@ -1,3 +1,4 @@
+import { ComponentLibraryModule } from './component-library/component-library.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,13 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppRoot } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppRoot
-  ],
+  declarations: [AppRoot],
   imports: [
     BrowserModule,
 
     NavigationModule,
+    ComponentLibraryModule,
     SecurityModule.forRoot({ targetUrlAfterSigningIn: ['notes'] }),
 
     AppRoutingModule

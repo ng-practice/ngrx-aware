@@ -36,16 +36,18 @@ export class Authentication {
   }
 
   register = ({ body: user }: Request, res: Response) => {
-    if (user.email &&
-      user.password === user.confirmedPassword) {
-
+    if (user.email && user.password) {
       this.users.add(user.email, user.password);
 
-      return res.send(`Congratulations! ${user.email} has been ` +
-        'registered successfully.');
+      return res.send({
+        message: `Congratulations! ${user.email} has been ` +
+                 'registered successfully.'
+      });
     }
 
-    return res.status(405).send('Uups, something went wrong. We are sorry.');
+    return res.status(405).send({
+      message: 'Uups, something went wrong. We are sorry.'
+    });
   }
 
   isEmailTaken = ({ params }: Request, res: Response) => {

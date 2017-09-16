@@ -19,6 +19,11 @@ export class PasswordInputs implements ControlValueAccessor {
   propagatePassword: (password: string) => void;
 
   public writeValue(password: string): void {
+    if (!password) {
+      this.password = password;
+      this.verification = password;
+    }
+
     this.password = password;
   }
 

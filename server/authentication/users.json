@@ -2,6 +2,8 @@
     "trainee@training.com": {
         "email": "trainee@training.com",
         "password": "36acf017ea0974457577506ef75268ac93ed6d61864ee994f438b63916ed1736",
-        "roles": ["member"]
+        "roles": [
+            "member"
+        ]
     }
 }

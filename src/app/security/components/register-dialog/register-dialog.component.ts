@@ -1,6 +1,8 @@
 import { EmailTaken } from '../../../component-library/form-validators/email-taken.validator';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Stranger } from '../../models';
 
 @Component({
   selector: 'awr-register-dialog',
@@ -9,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterDialog {
   register: FormGroup;
+
+  @Output() submit = new EventEmitter<Stranger>();
 
   constructor(private fb: FormBuilder, private emailTaken: EmailTaken) {
     this.provideEmptyRegisterForm();
@@ -20,4 +24,14 @@ export class RegisterDialog {
        password: ['', Validators.required]
      });
    }
+
+   submitCredentials() {
+    const candidate = new Stranger(
+      this.register.controls.email.value,
+      this.register.controls.password.value
+    );
+
+    this.submit.emit(candidate);
+    this.register.controls.password.reset();
+  }
 }

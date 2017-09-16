@@ -37,13 +37,13 @@ export class Modal {
     this.viewContainer = app.components[0].instance.root;
   }
 
-  open(title: string, message: string) {
+  open(title: string, message: string, color = 'default') {
     const factory = this.resolver.resolveComponentFactory(MessageModal);
     this.modal = this.viewContainer.createComponent(factory);
 
     this.modal.instance.title = title;
     this.modal.instance.message = message;
-    this.modal.instance.color = 'warn';
+    this.modal.instance.color = color;
 
     this.modal.instance.close.subscribe(() => this.destroy());
   }

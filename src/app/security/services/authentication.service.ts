@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/observable/of'
+import 'rxjs/add/observable/of';
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -32,14 +32,24 @@ export class Authentication {
       .do(token => this.storage.set('token', token))
       .do(() => this.router.navigate(this.navigationTargetAfterSignIn))
       .catch(() => {
-        this.modal.open('Not allowed', 'You entered the wrong email or password');
+        this.modal.open(
+          'Not allowed',
+          'You entered the wrong email or password.',
+          'warn'
+        );
         return Observable.of(null);
       });
   }
 
+  register(user: Stranger) {
+    return this.http.post(`${this.endpoint}/register`, user).catch(() => {
+      this.modal.open('Uups', 'Something went wrong.', 'warn');
+      return Observable.of(null);
+    });
+  }
+
   isEmailTaken(email: string): Observable<boolean> {
-    return this.http
-      .get<boolean>(`${this.endpoint}/is-email-taken/${email}`);
+    return this.http.get<boolean>(`${this.endpoint}/is-email-taken/${email}`);
   }
 }
 

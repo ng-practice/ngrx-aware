@@ -1,3 +1,4 @@
 <md-toolbar color="primary" >
-  <span>Aware</span>
+  <a routerLink="/">Aware</a>
+  <a [routerLink]="link.url" *ngFor="let link of links">{{ link.text }}</a>
 </md-toolbar>

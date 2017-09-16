@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { IsUserAuthenticated } from './security/guards/is-user-authenticated.guard';
 
+import { NotFound } from './component-library';
+
 const routes: Route[] = [
   {
     path: '',
@@ -14,6 +16,10 @@ const routes: Route[] = [
     path: 'notes',
     loadChildren: './notes/notes.module#NotesModule',
     canLoad: [IsUserAuthenticated]
+  },
+  {
+    path: '**',
+    component: NotFound
   }
 ];
 
