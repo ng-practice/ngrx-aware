@@ -1,3 +1,4 @@
+import { NavigationModule } from './navigation/navigation.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,6 +15,7 @@ import { AppRoot } from './app.component';
   imports: [
     BrowserModule,
 
+    NavigationModule,
     SecurityModule.forRoot({ targetUrlAfterSigningIn: ['notes'] }),
 
     AppRoutingModule
