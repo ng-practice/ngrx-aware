@@ -15,7 +15,6 @@ import { AppRoot } from './app.component';
     BrowserModule,
 
     SecurityModule.forRoot({ targetUrlAfterSigningIn: ['notes'] }),
-    NotesModule,
 
     AppRoutingModule
   ],
