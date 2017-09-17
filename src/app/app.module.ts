@@ -20,7 +20,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
 
-    StoreModule.forRoot({ notes: notesReducer }),
+    StoreModule.forRoot({}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
 
     NavigationModule,

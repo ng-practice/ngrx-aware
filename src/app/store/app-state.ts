@@ -1,3 +1,3 @@
 export interface AppState {
-  notes: number;
+  notes: { counter: number };
 }

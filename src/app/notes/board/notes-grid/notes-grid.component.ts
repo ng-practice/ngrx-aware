@@ -15,7 +15,7 @@ export class NotesGrid {
   counter$: Observable<number>;
 
   constructor(private store: Store<AppState>) {
-    this.counter$ = this.store.select('notes');
+    this.counter$ = this.store.select(state => state.notes.counter);
   }
 
   increment() {
