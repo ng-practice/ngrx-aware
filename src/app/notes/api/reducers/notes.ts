@@ -21,14 +21,15 @@ const handlers = provideHandlers([
   { type: Actions.LOAD_ALL_SUCCESS, reducerFn: set}
 ]);
 
-// export function notesReducer(slice = initialState, action: Action) {
-//   if (typeof handlers[action.type] === 'function') {
-//     return handlers[action.type](slice, action);
-//   }
-//   return slice;
-// }
+export function notesReducer(slice = initialState, action: Action) {
+  if (typeof handlers[action.type] === 'function') {
+    return handlers[action.type](slice, action);
+  }
+  return slice;
+}
 
-export const notesReducer = createReducer(initialState, handlers);
+// Hmpf, ...Angular Compiler. :D
+// export const notesReducer = createReducer(initialState, handlers);
 
 function set(slice: NoteSlice, action: LoadAllSuccess) {
   return {
