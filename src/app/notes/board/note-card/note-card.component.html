@@ -1,3 +1,11 @@
-<p>
-  note-card works!
-</p>
+<md-card>
+  <md-card-title>{{ note.title }}</md-card-title>
+  <md-card-content>{{ note.text }} </md-card-content>
+  <md-card-content>
+    <button md-icon-button>
+        <md-icon
+          class="md-24"
+          aria-label="trash icon">delete</md-icon>
+      </button>
+  </md-card-content>
+</md-card>

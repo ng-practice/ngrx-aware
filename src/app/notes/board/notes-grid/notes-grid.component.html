@@ -1,5 +1,10 @@
-<button (click)="increment()">Increment</button>
-<button (click)="decrement()">Decrement</button>
-<button (click)="reset()">Reset</button>
+<ng-container *ngIf="notes$ | async; let notes; else loading;">
+  <awr-note-card
+    [note]="note"
+    *ngFor="let note of notes">
+  </awr-note-card>
+</ng-container>
 
-<div>{{ counter$ | async }}</div>
+<ng-template #loading>
+    <md-spinner></md-spinner>
+</ng-template>

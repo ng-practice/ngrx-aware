@@ -1,13 +1,11 @@
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { ComponentLibraryModule } from './component-library/component-library.module';
-import { NavigationModule } from './navigation/navigation.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { reducer as notesReducer } from './notes/api/reducer';
+import { NgrxModule } from './store/ngrx.module';
 
-import { NotesModule } from './notes';
+import { ComponentLibraryModule } from './component-library/component-library.module';
+import { NavigationModule } from './navigation/navigation.module';
+
 import { SecurityModule } from './security/security.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,8 +18,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
 
-    StoreModule.forRoot({}),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    NgrxModule,
 
     NavigationModule,
     ComponentLibraryModule,

@@ -1,8 +1,9 @@
-import { reducer as notesReducer } from './reducer';
+export * from './reducers/notes';
+export * from './reducers/search';
+
+export * from './model';
+export * from './service';
+export * from './effects';
 
 import * as NotesActions from './actions';
 export const Actions = NotesActions;
-
-export const reducers = {
-  counter: notesReducer
-};
