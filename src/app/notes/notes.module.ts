@@ -23,6 +23,7 @@ import { notesReducer, notesSearchReducer, Notes, NotesEffects } from './api';
       models: notesReducer,
       search: notesSearchReducer
     }),
+
     EffectsModule.forFeature([NotesEffects]),
 
     MdCardModule,

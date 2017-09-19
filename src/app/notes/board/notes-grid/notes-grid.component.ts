@@ -5,9 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { AppState } from '../../../store';
 
-import { Actions, Note } from '../../api';
-
-import 'rxjs/add/operator/debounceTime';
+import { Actions, Note, allNotes } from '../../api';
 
 @Component({
   selector: 'awr-notes-grid',
@@ -19,7 +17,7 @@ export class NotesGrid implements OnInit {
   notes$: Observable<Note[]>;
 
   constructor(private store: Store<AppState>) {
-    this.notes$ = this.store.select(state => state.notes.models.all);
+    this.notes$ = this.store.select(allNotes);
   }
 
   ngOnInit() {
