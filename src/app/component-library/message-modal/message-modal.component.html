@@ -2,16 +2,16 @@
 </div>
 
 <div class="closable message-dialog">
-  <md-card>
-    <md-card-title>{{ title }}</md-card-title>
-    <md-card-content>{{ message }}</md-card-content>
-    <md-card-content>
+  <mat-card>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-card-content>{{ message }}</mat-card-content>
+    <mat-card-content>
       <button
         (click)="close.emit()"
-        md-raised-button
+        mat-raised-button
         [color]="color">
         Got it!
       </button>
-    </md-card-content>
-  </md-card>
+    </mat-card-content>
+  </mat-card>
 </div>

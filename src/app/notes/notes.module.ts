@@ -4,10 +4,10 @@ import { StoreModule } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 
 import {
-  MdCardModule,
-  MdProgressSpinnerModule,
-  MdButtonModule,
-  MdIconModule
+  MatCardModule,
+  MatProgressSpinnerModule,
+  MatButtonModule,
+  MatIconModule
 } from '@angular/material';
 
 import { NotesRoutingModule } from './notes-routing.module';
@@ -26,10 +26,10 @@ import { notesReducer, notesSearchReducer, Notes, NotesEffects } from './api';
 
     EffectsModule.forFeature([NotesEffects]),
 
-    MdCardModule,
-    MdIconModule,
-    MdButtonModule,
-    MdProgressSpinnerModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
 
     NotesRoutingModule
   ],

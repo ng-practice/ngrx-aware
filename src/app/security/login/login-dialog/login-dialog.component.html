@@ -1,28 +1,28 @@
 <awr-user-dialog title="Login">
   <form class="content" [formGroup]="login">
-    <md-form-field>
+    <mat-form-field>
       <input
-        mdInput
+        matInput
         formControlName="email"
         type="text"
         placeholder="Email address">
-      <md-error *ngIf="login.controls.email.hasError('required')">
+      <mat-error *ngIf="login.controls.email.hasError('required')">
         Bitte vergessen Sie Ihre E-Mail-Adresse nicht.
-      </md-error>
-    </md-form-field>
-    <md-form-field>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
       <input
-        mdInput
+        matInput
         formControlName="password"
         type="password"
         placeholder="Password">
-    </md-form-field>
+    </mat-form-field>
   </form>
   <div class="actions">
     <button
       (click)="submitCredentials()"
       [disabled]="login.invalid"
-      md-raised-button color="primary">
+      mat-raised-button color="primary">
       Login
     </button>
   </div>

@@ -10,10 +10,10 @@ import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import {
-  MdCardModule,
-  MdButtonModule,
-  MdInputModule,
-  MdIconModule
+  MatCardModule,
+  MatButtonModule,
+  MatInputModule,
+  MatIconModule
 } from '@angular/material';
 
 import { MODAL } from './message-modal/modal.service';
@@ -37,10 +37,10 @@ import { AddClassesOnClick } from './directives/append-class-on-click.directive'
 
     FormsModule,
 
-    MdCardModule,
-    MdButtonModule,
-    MdInputModule,
-    MdIconModule
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule
   ],
   declarations: [
     EmailTakenTemplateValidator,

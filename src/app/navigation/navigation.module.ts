@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MdToolbarModule, MdIconModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule } from '@angular/material';
 
 import { TopNav } from './top-nav/top-nav.component';
 
@@ -10,8 +10,8 @@ import { TopNav } from './top-nav/top-nav.component';
     CommonModule,
     RouterModule,
 
-    MdToolbarModule,
-    MdIconModule
+    MatToolbarModule,
+    MatIconModule
   ],
   declarations: [TopNav],
   exports: [TopNav]

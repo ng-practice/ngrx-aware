@@ -7,7 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MdInputModule, MdButtonModule } from '@angular/material';
+import { MatInputModule, MatButtonModule } from '@angular/material';
 import { SecurityRoutingModule } from './security-routing.module';
 
 import { LocalStorage } from './services/local-storage.service';
@@ -24,8 +24,8 @@ import { provideAuthentication } from './services/authentication.service';
     HttpClientModule,
     ReactiveFormsModule,
 
-    MdInputModule,
-    MdButtonModule,
+    MatInputModule,
+    MatButtonModule,
 
     ComponentLibraryModule,
 
