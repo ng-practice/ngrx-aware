@@ -14,7 +14,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/first';
 
-import { Authentication } from '../../security/services';
+import { Authentication } from '../../authentication';
 
 @Injectable()
 export class EmailTaken implements AsyncValidator {

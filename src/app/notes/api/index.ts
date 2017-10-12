@@ -2,6 +2,7 @@ export * from './reducers/notes';
 export * from './reducers/search';
 
 export * from './model';
+export * from './types';
 export * from './selectors';
 export * from './service';
 export * from './effects';

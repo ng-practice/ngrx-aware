@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatInputModule, MatButtonModule } from '@angular/material';
-import { SecurityRoutingModule } from './security-routing.module';
+import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 import { LocalStorage } from './services/local-storage.service';
 
@@ -29,7 +29,7 @@ import { provideAuthentication } from './services/authentication.service';
 
     ComponentLibraryModule,
 
-    SecurityRoutingModule
+    AuthenticationRoutingModule
   ],
   declarations: [
     LoginPage,
@@ -38,10 +38,10 @@ import { provideAuthentication } from './services/authentication.service';
     RegisterDialog
   ]
 })
-export class SecurityModule {
+export class AuthenticationModule {
   static forRoot(config: SignInConfig): ModuleWithProviders {
     return {
-      ngModule: SecurityModule,
+      ngModule: AuthenticationModule,
       providers: [
         LocalStorage,
         provideAuthentication(config.targetUrlAfterSigningIn),
