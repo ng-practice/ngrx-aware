@@ -18,7 +18,7 @@ export class NotesEffects {
     this.notes
       .all()
       .map(notes => new Action.LoadAllSuccess(notes))
-      .catch(err => this.newFunction(err))
+      .catch(err => this.displayError(err))
   );
 
   constructor(
@@ -27,7 +27,7 @@ export class NotesEffects {
     private notes: Notes
   ) {}
 
-    private newFunction(err: any) {
+    private displayError(err: any) {
         this.modal.open('Uups', err.message, 'warn');
         return of(new Action.LoadAllError(err));
     }
