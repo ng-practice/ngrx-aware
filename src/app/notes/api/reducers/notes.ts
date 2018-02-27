@@ -15,17 +15,38 @@ const initialState: NoteSlice = {
 
 export function notesReducer(slice = initialState, action: Actions.All) {
   switch (action.type) {
+    case Actions.LOAD_ALL:
+      return indicateLoading(slice, action);
     case Actions.LOAD_ALL_SUCCESS:
       return set(slice, action);
+    case Actions.LOAD_ALL_ERROR:
+      return resetLoading(slice, action);
   }
 
   return slice;
 }
 
-function set(slice: NoteSlice, action: Actions.LoadAllSuccess) {
+function indicateLoading(slice: NoteSlice, action: Actions.LoadAll): NoteSlice {
   return {
     ...slice,
-    all: action.payload
+    loading: true
+  };
+}
+
+function set(slice: NoteSlice, action: Actions.LoadAllSuccess): NoteSlice {
+  return {
+    ...slice,
+    all: action.payload,
+    loading: false,
+    loaded: true
+  };
+}
+
+function resetLoading(slice: NoteSlice, action: Actions.LoadAllError): NoteSlice {
+  return {
+    ...slice,
+    loading: false,
+    loaded: false
   };
 }
 
