@@ -1,13 +1,21 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 import * as fromNotes from './notes';
 
+export interface PinboardSlice {
+  notes: fromNotes.NoteSlice;
+}
+
+export const reducers: ActionReducerMap<PinboardSlice> = {
+  notes: fromNotes.reducer
+};
+
 /** create base refrence to certain slice, corresponding to feature name */
-export const getNotes = createFeatureSelector('notes');
+export const getNotes = createFeatureSelector('pinboard');
 
 export const getNoteSlice = createSelector(
   getNotes,
-  (notes: any) => notes.models
+  (pinboard: PinboardSlice) => pinboard.notes
 );
 
 export const getAllNotes = createSelector(getNoteSlice, fromNotes.getAllNotes);

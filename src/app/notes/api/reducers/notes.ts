@@ -13,7 +13,7 @@ const initialState: NoteSlice = {
   loading: false
 };
 
-export function notesReducer(slice = initialState, action: Actions.All) {
+export function reducer(slice = initialState, action: Actions.All) {
   switch (action.type) {
     case Actions.LOAD_ALL:
       return indicateLoading(slice, action);
