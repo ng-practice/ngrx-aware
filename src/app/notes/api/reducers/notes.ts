@@ -1,12 +1,18 @@
 import * as Actions from '../actions';
 
-import { NoteSlice } from '../types';
 import { Note } from '../model';
-
 import { createReducer, provideHandlers } from '../../../store';
 
+export interface NoteSlice {
+  all: Note[];
+  loaded: boolean;
+  loading: boolean;
+}
+
 const initialState: NoteSlice = {
-  all: []
+  all: [],
+  loaded: false,
+  loading: false
 };
 
 const handlers = provideHandlers([

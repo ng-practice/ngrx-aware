@@ -1,8 +1,7 @@
-import { NoteSlice, NotesSearchSlice } from '../notes/api';
+import { NoteSlice } from '../notes/api';
 
 export interface AppState {
   notes: {
-    models: NoteSlice,
-    search: NotesSearchSlice
+    models: NoteSlice
   };
 }

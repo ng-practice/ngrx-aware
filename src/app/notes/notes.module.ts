@@ -1,23 +1,21 @@
-import { ReactiveFormsModule } from '@angular/forms';
-import { ComponentLibraryModule } from './../component-library/component-library.module';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatIconModule,
+  MatInputModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { CommonModule } from '@angular/common';
 
-import {
-  MatCardModule,
-  MatProgressSpinnerModule,
-  MatButtonModule,
-  MatIconModule,
-  MatInputModule
-} from '@angular/material';
-
-import { NotesRoutingModule } from './notes-routing.module';
-
-import { NotesGrid, NoteCard } from './board';
-import { notesReducer, notesSearchReducer, Notes, NotesEffects } from './api';
+import { ComponentLibraryModule } from './../component-library/component-library.module';
+import { Notes, NotesEffects, notesReducer } from './api';
+import { NoteCard, NotesGrid } from './board';
 import { NoteQuickAdd } from './board/note-quick-add/note-quick-add.component';
+import { NotesRoutingModule } from './notes-routing.module';
 
 @NgModule({
   imports: [
@@ -25,8 +23,7 @@ import { NoteQuickAdd } from './board/note-quick-add/note-quick-add.component';
     ReactiveFormsModule,
 
     StoreModule.forFeature('notes', {
-      models: notesReducer,
-      search: notesSearchReducer
+      models: notesReducer
     }),
 
     EffectsModule.forFeature([NotesEffects]),
@@ -44,4 +41,4 @@ import { NoteQuickAdd } from './board/note-quick-add/note-quick-add.component';
   declarations: [NotesGrid, NoteCard, NoteQuickAdd],
   providers: [Notes]
 })
-export class NotesModule { }
+export class NotesModule {}

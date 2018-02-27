@@ -1,7 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { NoteSlice } from '../types/note-slice';
-
 import * as fromNotes from './notes';
 
 /** create base refrence to certain slice, corresponding to feature name */

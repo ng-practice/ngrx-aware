@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { AppState } from '../../../store';
 
-import { Actions, Note, allNotes } from '../../api';
+import { Actions, Note } from '../../api';
 import { getAllNotes } from '../../api/reducers';
 
 @Component({
@@ -18,7 +18,6 @@ export class NotesGrid implements OnInit {
   notes$: Observable<Note[]>;
 
   constructor(private store: Store<AppState>) {
-    // this.notes$ = this.store.select(allNotes);
     this.notes$ = this.store.select(getAllNotes);
   }
 
