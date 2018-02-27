@@ -1,8 +1,9 @@
 export class Note {
+  guid: string;
   title: string;
   text: string;
 
-  toods: Todo[];
+  todos: Todo[];
 }
 
 export class Todo {

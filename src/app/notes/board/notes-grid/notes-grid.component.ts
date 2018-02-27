@@ -15,7 +15,7 @@ import * as fromNotes from '../../api/reducers';
 })
 export class NotesGrid implements OnInit {
   isLoading$: Observable<boolean>;
-  notes$: Observable<Note[]>;
+  notes$: Observable<{[id: string]: Note}>;
 
   constructor(private store: Store<AppState>) {
     this.notes$ = this.store.select(fromNotes.allNotes);

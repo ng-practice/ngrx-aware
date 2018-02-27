@@ -2,13 +2,13 @@ import * as Actions from '../actions';
 import { Note } from '../model';
 
 export interface NoteSlice {
-  all: Note[];
+  entities: { [id: string]: Note };
   loaded: boolean;
   loading: boolean;
 }
 
 const initialState: NoteSlice = {
-  all: [],
+  entities: {},
   loaded: false,
   loading: false
 };
@@ -34,15 +34,26 @@ function indicateLoading(slice: NoteSlice, action: Actions.LoadAll): NoteSlice {
 }
 
 function set(slice: NoteSlice, action: Actions.LoadAllSuccess): NoteSlice {
+  const entities = action.payload.reduce(
+    (notes: { [id: string]: Note }, note) => ({
+      ...notes,
+      [note.guid]: note
+    }),
+    { ...slice.entities }
+  );
+
   return {
     ...slice,
-    all: action.payload,
+    entities,
     loading: false,
     loaded: true
   };
 }
 
-function resetLoading(slice: NoteSlice, action: Actions.LoadAllError): NoteSlice {
+function resetLoading(
+  slice: NoteSlice,
+  action: Actions.LoadAllError
+): NoteSlice {
   return {
     ...slice,
     loading: false,
@@ -50,6 +61,8 @@ function resetLoading(slice: NoteSlice, action: Actions.LoadAllError): NoteSlice
   };
 }
 
-export const allNotes = (slice: NoteSlice) => slice.all;
+export const allNotesEntities = (slice: NoteSlice) => slice.entities;
+export const allNotes = (entities: {[id: string]: Note}) => Object.keys(entities).map(guid => entities[guid]);
+
 export const isLoading = (slice: NoteSlice) => slice.loading;
 export const isLoaded = (slice: NoteSlice) => slice.loaded;
