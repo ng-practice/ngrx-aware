@@ -29,3 +29,5 @@ function set(slice: NoteSlice, action: Actions.LoadAllSuccess) {
     all: action.payload
   };
 }
+
+export const getAllNotes = (slice: NoteSlice) => slice.all;
