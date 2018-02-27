@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { AppState } from '../../../store';
 
 import { Actions, Note } from '../../api';
-import { getAllNotes } from '../../api/reducers';
+import * as fromNotes from '../../api/reducers';
 
 @Component({
   selector: 'awr-notes-grid',
@@ -14,25 +14,15 @@ import { getAllNotes } from '../../api/reducers';
   styleUrls: ['./notes-grid.component.scss']
 })
 export class NotesGrid implements OnInit {
-  counter$: Observable<number>;
+  isLoading$: Observable<boolean>;
   notes$: Observable<Note[]>;
 
   constructor(private store: Store<AppState>) {
-    this.notes$ = this.store.select(getAllNotes);
+    this.notes$ = this.store.select(fromNotes.allNotes);
+    this.isLoading$ = this.store.select(fromNotes.isLoading);
   }
 
   ngOnInit() {
     this.store.dispatch(new Actions.LoadAll());
-  }
-
-  increment() {
-    this.store.dispatch(new Actions.Increment());
-  }
-
-  decrement() {
-    this.store.dispatch(new Actions.Decrement());
-  }
-  reset() {
-    this.store.dispatch(new Actions.Reset(3));
   }
 }

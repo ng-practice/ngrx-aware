@@ -1,12 +1,9 @@
 <awr-note-quick-add></awr-note-quick-add>
 
-<ng-container *ngIf="notes$ | async; let notes; else loading;">
-  <awr-note-card
-    [note]="note"
-    *ngFor="let note of notes">
-  </awr-note-card>
-</ng-container>
+<mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
 
-<ng-template #loading>
-    <mat-spinner></mat-spinner>
-</ng-template>
+<awr-note-card
+  [note]="note"
+  *ngFor="let note of notes$ | async">
+</awr-note-card>
+

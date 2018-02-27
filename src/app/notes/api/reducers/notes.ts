@@ -50,4 +50,6 @@ function resetLoading(slice: NoteSlice, action: Actions.LoadAllError): NoteSlice
   };
 }
 
-export const getAllNotes = (slice: NoteSlice) => slice.all;
+export const allNotes = (slice: NoteSlice) => slice.all;
+export const isLoading = (slice: NoteSlice) => slice.loading;
+export const isLoaded = (slice: NoteSlice) => slice.loaded;

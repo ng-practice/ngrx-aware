@@ -18,4 +18,6 @@ export const getNoteSlice = createSelector(
   (pinboard: PinboardSlice) => pinboard.notes
 );
 
-export const getAllNotes = createSelector(getNoteSlice, fromNotes.getAllNotes);
+export const allNotes = createSelector(getNoteSlice, fromNotes.allNotes);
+export const isLoading = createSelector(getNoteSlice, fromNotes.isLoading);
+export const isLoaded = createSelector(getNoteSlice, fromNotes.isLoaded);
