@@ -1,34 +1,40 @@
 # NgrxAware
+> **Make sure** that you have installed all `node_modules`
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+## Start Client
+
+- Execute `npm start` for a dev server.
+- Navigate to `http://localhost:4200`.
+
+## Start Backend
+
+- Execute `npm run api` to start the HTTP-API.
+- The API is hosted on `http://localhost:4280`.
+
+|        |Url|Description|
+|--------|---------|-----------|
+|`POST`  |/register|Add a new user|
+|`POST`  |/login   |Logging in a existing user `[1]`|
+|`GET`   |/is-user-authenticated|Check if user is authenticated|
+|`GET`   |/is-email-taken|Check if e-mail address is already in use|
+|`GET`   |/notes/all|Gets all notes|
+|`GET`   |/notes/single/:guid|Gets a single note by its GUID|
+|`POST`  |/notes/create/|Creates a new note|
+|`PUT`   |/notes/update/|Updates a note|
+|`DELETE`|/notes/remove/:guid|Deletes the specified note|
+
+> **[1]** You can already log in with the user `trainee@training.com` having the password `1234`.
 
 ## Material Icons
 
 - The material icon font is installed in this project.
-- With the <mat-icon> component fomr `@angular/material` it is easy to use them
-  - *Sample:* `<mat-icon>home</mat-icon`
+- With the <md-icon> component fomr `@angular/material` it is easy to use them
+  - *Sample:* `<md-icon>home</md-icon`
 - Check [material.io/icons/](https://material.io/icons/) for the icon reference
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
 
 ## Further help
 
