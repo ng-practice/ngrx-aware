@@ -5,9 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Material Icons
 
 - The material icon font is installed in this project.
-- With the <md-icon> component fomr `@angular/material` it is easy to use them
-  - *Sample:* `<md-icon>home</md-icon`
-- Check [material.io/icons/](https://material.io/icons/) for the icon reference 
+- With the <mat-icon> component fomr `@angular/material` it is easy to use them
+  - *Sample:* `<mat-icon>home</mat-icon`
+- Check [material.io/icons/](https://material.io/icons/) for the icon reference
 
 ## Development server
 

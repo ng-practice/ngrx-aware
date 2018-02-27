@@ -5,5 +5,12 @@
         "roles": [
             "member"
         ]
+    },
+    "gregor.woiwode@gmail.com": {
+        "email": "gregor.woiwode@gmail.com",
+        "password": "e6782849736c84d330a2dca98831b0b358a613c7560acf25e767a55386e7cf89",
+        "roles": [
+            "member"
+        ]
     }
 }
